@@ -30,6 +30,9 @@
           <td>
             <%= render "book_comments/comments_count", book: @book %>
           </td>
+          <td class="view-count">
+            閲覧数: <%= @book_detail.view_counts.count %></p>
+          </td>
         </tr>
       </table>
       <div id="book_comments_index">
@@ -37,6 +40,7 @@
       </div>
    <div id="book_comments_form">
         <%= render "book_comments/form", book: @book ,book_comment: @book_comment %>
+        
    </div>
       
   </div>
