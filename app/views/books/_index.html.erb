@@ -18,11 +18,13 @@
         <td><%= book.body %></td>
         
         <td id="favorite_buttons_<%= book.id %>">
+          <!--<td class=<%#= "favorite-" + book.id.to_s %> >-->
           <%= render "favorites/favorites", book: book %>
         </td>
         <td>
           <%= render "book_comments/comments_count", book: book %>
         </td>
+        <td class="view-count">閲覧数: <%= book.view_counts.count %></td>
       </tr>
     <% end %>
   </tbody>
