@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
   
+  
   resources :users, only: [:index,:show,:edit,:update] do 
+    get "search", to: "users#search"
     resources :relationships, only: [:create, :destroy, :followers]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'

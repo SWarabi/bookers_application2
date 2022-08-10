@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
+    
+    #@books = @user.books.page(params[:page]).reverse_order
   end
 
   def index
@@ -24,6 +26,18 @@ class UsersController < ApplicationController
       render :edit
     else
       redirect_to user_path(current_user)
+    end
+  end
+  
+  def search
+    @user = User.find(params[:user_id])
+    @books = @user.books 
+    @book = Book.new
+    if params[:created_at] == ""
+      @search_book = "日付を選択してください"
+    else
+      create_at = params[:created_at]
+      @search_book = @books.where(['created_at LIKE ? ', "#{create_at}%"]).count
     end
   end
 

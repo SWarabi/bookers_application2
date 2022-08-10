@@ -13,6 +13,9 @@ import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application" 
 
+require("chartkick") // 追記
+require("chart.js") // 追記
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
